@@ -2,4 +2,6 @@
 ls -na
 #!/bin/bash
 ls -al
+#!/bin/bash
+ls -al
 
