@@ -1,4 +1,3 @@
 Background Context
 
-CMD CALLENGE is an awesome tricky challenging you to a Bash skills. Everything is done through command line interface and the questions are gradually increasingly complecated. It's a good training to improve your command line skills!
-
+CMD CHALLENGE is a pretty cool game challenging you on Bash skills. Everything is done via the command line and the questions are becoming increasingly complicated. It’s a good training to improve your command line skills!
