@@ -33,20 +33,21 @@ defaults
         errorfile 503 /etc/haproxy/errors/503.http
         errorfile 504 /etc/haproxy/errors/504.http
 
-frontend  ollyjhay-frontend
-        bind *:80
-        mode http
-        bind *:443 ssl crt /etc/haproxy/certs/www.ollyjhay.tech.pem
-        redirect scheme https if !{ ssl_fc }
-        default_backend ollyjhay-backend
-backend ollyjhay-backend
-        balance roundrobin
-        server 93511-web-01 35.174.209.1:80 check
-        server 93511-web-02 35.153.52.94:80 check
 
-listen http-in
-        bind :80
-        balance roundrobin
-        server 93511-web-01 35.174.209.1:80 check
-        server 93511-web-02 35.153.52.94:80 check
 
+# start of parameters for nwabueze.tech
+frontend nwabueze.tech-http-frontend
+        bind     *:80
+        redirect scheme https code 301 if !{ ssl_fc }
+        http-request set-header X-Forwarded-Proto http
+        default_backend  nwabueze.tech-backend
+frontend b3zaleel-alx.tech-https-frontend
+        bind *:443 ssl crt /etc/letsencrypt/live/www.nwabueze.tech/fullchain.pem
+        http-request set-header X-Forwarded-Proto https
+        default_backend nwabueze.tech-backend
+backend nwabueze.tech-backend
+        balance roundrobin
+        server 17272-web-01 52.91.121.146:80 check
+        server 17272-web-02 3.85.136.181:80 check
+# end of parameters
+                                                                                                 51,15         Bot
